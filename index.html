@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Space | Sell Your Digital Products</title>
+
+    <link rel="stylesheet" href="assets/css/index-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav class="whop-nav">
+      <div class="logo">Creative<span>Space</span></div>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="marketplace.html">Marketplace</a></li>
+        <li><a href="creators-hub.html">Creators Hub</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="coming-soon.html" class="partner-btn">Partner With Us</a>
+      </div>
+
+      <!-- NEW: MOBILE TOGGLE -->
+      <button class="menu-toggle" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- NEW: MOBILE MENU -->
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <main class="page-wrapper fade-up">
+      <header class="hero">
+        <div class="badge">Zambia's Creator Economy 🇿🇲</div>
+
+        <h1>
+          Turn Knowledge Into <br />
+          <span class="gradient-text">Products That Sell</span>
+        </h1>
+
+        <p class="hero-desc">
+          We build and sell digital products for creators. We handle the tech;
+          you earn the revenue.
+        </p>
+
+        <div class="cta-row">
+          <a href="marketplace.html" class="btn-fill-dark">
+            Explore Marketplace
+          </a>
+          <a href="coming-soon.html" class="btn-fill-white">
+            Become a Partner
+          </a>
+        </div>
+      </header>
+
+      <section class="how-it-works fade-section">
+        <h2 class="section-title">How it works</h2>
+
+        <div class="grid">
+          <div class="card fade-section">
+            <div class="card-header">
+              <span class="card-num">01</span>
+              <i class="fas fa-lightbulb icon"></i>
+            </div>
+            <h3>Expertise</h3>
+            <p>You bring the knowledge. We handle the technical packaging.</p>
+          </div>
+
+          <div class="card fade-section">
+            <div class="card-header">
+              <span class="card-num">02</span>
+              <i class="fas fa-hammer icon"></i>
+            </div>
+            <h3>Build</h3>
+            <p>We structure your content into a premium digital asset.</p>
+          </div>
+
+          <div class="card fade-section">
+            <div class="card-header">
+              <span class="card-num">03</span>
+              <i class="fas fa-wallet icon"></i>
+            </div>
+            <h3>Earn</h3>
+            <p>Revenue hits your wallet through local payment methods.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- NEW: INTERACTION SCRIPT -->
+    <script>
+      const toggle = document.querySelector(".menu-toggle");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      toggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("show");
+        document.body.classList.toggle("no-scroll");
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      document
+        .querySelectorAll(".fade-section")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
