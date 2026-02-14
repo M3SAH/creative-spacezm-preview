@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketplace | Creative Space</title>
+
+    <link rel="stylesheet" href="assets/css/marketplace.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- BACKGROUND -->
+    <div class="grid-bg"></div>
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-cyan"></div>
+
+    <!-- NAV -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">CREATIVE<span>SPACE</span></div>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="marketplace.html" class="active">Marketplace</a></li>
+          <li><a href="creators-hub.html">Creators Hub</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="creators-hub.html">Creators Hub</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- MAIN -->
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero">
+        <span class="eyebrow">Marketplace</span>
+        <h1>Digital Products,<br />Built by Local Creators</h1>
+        <p>
+          Creative Space is preparing a curated marketplace of digital resources
+          designed and produced by Zambian creatives.
+        </p>
+      </section>
+
+      <!-- MARKET SECTIONS -->
+      <section class="market-grid">
+        <div class="market-card">
+          <div class="card-visual"></div>
+          <h3>Educational Resources</h3>
+          <p>
+            Workbooks, playbooks, and learning materials built from real
+            experience - not theory.
+          </p>
+          <span class="status">Coming Soon</span>
+        </div>
+
+        <div class="market-card">
+          <div class="card-visual"></div>
+          <h3>Templates & Toolkits</h3>
+          <p>
+            Ready-to-use assets for branding, marketing, and digital production.
+          </p>
+          <span class="status">Coming Soon</span>
+        </div>
+
+        <div class="market-card">
+          <div class="card-visual"></div>
+          <h3>Guides & Frameworks</h3>
+          <p>
+            Practical guides created by operators actively working in their
+            fields.
+          </p>
+          <span class="status">Coming Soon</span>
+        </div>
+      </section>
+
+      <!-- DIVIDER -->
+      <div class="divider"></div>
+
+      <!-- CTA -->
+      <section class="cta">
+        <h2>This is only the beginning.</h2>
+        <p>
+          The Creative Space marketplace will grow as more creators join and
+          contribute meaningful digital products.
+        </p>
+        <a href="creators-hub.html" class="cta-btn">Explore the Creators Hub</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Creative Space - Supporting the Zambian Creator Economy</p>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".menu-toggle");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      toggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("show");
+        document.body.classList.toggle("no-scroll");
+        
+        const icon = toggle.querySelector("i");
+        if (mobileMenu.classList.contains("show")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      document.querySelectorAll(".mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("show");
+          document.body.classList.remove("no-scroll");
+          toggle.querySelector("i").classList.remove("fa-times");
+          toggle.querySelector("i").classList.add("fa-bars");
+        });
+      });
+    </script>
+  </body>
+</html>

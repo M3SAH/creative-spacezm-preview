@@ -1,0 +1,466 @@
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+:root {
+  --primary: #014baa;
+  --accent: #00c0fe;
+  --bg: #f8f3f0;
+  --dark: #0e162c;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+/* =====================================================
+   RESET / BASE
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg);
+  color: var(--dark);
+  background-image: radial-gradient(var(--border) 1px, transparent 0);
+  background-size: 30px 30px;
+  animation: pageFade 0.6s ease;
+  line-height: 1.6;
+}
+
+a,
+button {
+  min-height: 44px;
+}
+
+a:active,
+button:active {
+  transform: scale(0.96);
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+.whop-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4%;
+  background: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: white;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: white;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-right {
+  display: flex;
+}
+
+.partner-btn {
+  background: var(--accent);
+  color: var(--dark);
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 192, 254, 0.3);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 74px);
+  z-index: 999;
+  background: rgba(1, 75, 170, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-menu.show {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.2s ease;
+}
+
+.mobile-menu a:hover {
+  color: var(--accent);
+}
+
+.mobile-menu .mobile-partner-btn {
+  margin-top: 1rem;
+  background: var(--accent);
+  color: var(--dark);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+.about-hero {
+  padding: 60px 20px 40px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  margin-bottom: 15px;
+}
+
+.about-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+}
+
+.hero-desc {
+  color: #52525b;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   TEXT EFFECTS
+===================================================== */
+.gradient-text {
+  background: linear-gradient(90deg, #014baa 0%, #00c0fe 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+.content-section {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.content-section p {
+  font-size: 1.1rem;
+  color: #52525b;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   PROCESS / GRID
+===================================================== */
+.process-section {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 4%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* =====================================================
+   CARD COMPONENT
+===================================================== */
+.card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.grid .card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.grid .card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.grid .card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-num {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  font-weight: 800;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #52525b;
+  line-height: 1.6;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.card:hover .icon {
+  transform: scale(1.15) rotate(-3deg);
+  color: var(--accent);
+}
+
+/* =====================================================
+   VISION
+===================================================== */
+.vision-box {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  background: var(--dark);
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.vision-box h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.vision-box p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-right {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 40px 20px 30px;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .vision-box {
+    padding: 3rem 1.5rem;
+  }
+
+  .vision-box h2 {
+    font-size: 1.8rem;
+  }
+
+  .vision-box p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    background-size: 60px 60px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+}
